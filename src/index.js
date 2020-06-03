@@ -41,6 +41,13 @@ const setupJss = () => {
 const sheets = setupJss()
 
 const theme = {
+  primaryFontFamily: 'Work Sans, san-serif',
+  secondaryFontFamily: 'Space Mono, monospace',
+  thirdFontFamily: 'Source Code Pro, monospace',
+  primaryTextColor: 'black',
+  secondaryTextColor: 'white',
+  backgroundColor1: 'white',
+  pagePadding: '20px'
 }
 
 ReactDOM.render(

@@ -1,9 +1,19 @@
-import React from 'react';
+import React from 'react'
+import Header from './components/Header'
 
 function App() {
   return (
-    <h1>hello</h1>
-  );
+    <>
+      <Header/>
+      {/* <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/about' component={About}/>
+        <Route exact path='/adding-projects-to-the-index' component={HowToUse}/>
+        <Route exact path='/searching-the-index' component={Search}/>
+      </Switch>
+      <Footer/> */}
+    </>
+  )
 }
 
 export default App;
