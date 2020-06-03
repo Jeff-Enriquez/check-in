@@ -27,7 +27,7 @@ const setupJss = () => {
 
   const globalStyleSheet = jss.createStyleSheet(
     {'@global': { 
-        body: { 
+        body: {
           margin: '0',
         },
     }}

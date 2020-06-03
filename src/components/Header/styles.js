@@ -7,6 +7,8 @@ const useStyles = createUseStyles( theme => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    top: '0',
+    right: '0',
     width: '100%',
     height: '100vh',
     backgroundColor: theme.backgroundColor1,
