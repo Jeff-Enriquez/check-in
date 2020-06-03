@@ -13,7 +13,7 @@ const useStyles = createUseStyles( theme => ({
     height: '100vh',
     backgroundColor: theme.backgroundColor1,
     boxSizing: 'border-box',
-    zIndex: '400',
+    zIndex: '-1',
     opacity: '0',
     transition: 'opacity 0s',
     '& $link:last-child': {
@@ -65,6 +65,7 @@ const useStyles = createUseStyles( theme => ({
   display: {
     opacity: '1',
     transition: 'opacity .5s',
+    zIndex: '400',
   },
 }))
 

@@ -13,7 +13,9 @@ import WebFont from 'webfontloader'
 WebFont.load({
   google: {
     families: [
-      'Work Sans:400,500,700', 'sans-serif',
+      'Work Sans:400,500,700',
+      'Lato:400,700',
+      'sans-serif',
       'Space Mono:400,500', 'monospace',
       'Source Code Pro:400',
     ]
@@ -42,7 +44,7 @@ const sheets = setupJss()
 
 const theme = {
   primaryFontFamily: 'Work Sans, san-serif',
-  secondaryFontFamily: 'Space Mono, monospace',
+  secondaryFontFamily: 'Lato, san-serif',
   thirdFontFamily: 'Source Code Pro, monospace',
   primaryTextColor: 'black',
   secondaryTextColor: 'white',
