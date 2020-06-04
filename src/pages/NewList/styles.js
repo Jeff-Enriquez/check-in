@@ -54,9 +54,34 @@ const useStyles = createUseStyles( theme => ({
   img: {
     width: '100%',
   },
+  textAreaContainer: {
+    width: '75%',
+    height: 'fit-content',
+    margin: '20px auto 0 auto',
+    textAlign: 'center',
+  },
+  textArea: {
+    boxSizing: 'border-box',
+    width: '100%',
+    height: '200px',
+    resize: 'none',
+    padding: '4px',
+    fontSize: '.8em',
+    border: 'none',
+    boxShadow: '0px 0px 0px 2px rgb(167, 230, 250)',
+    outline: 'none',
+    '&:focus': {
+      boxShadow: '0px 0px 2px 2px rgb(4, 155, 204)',
+    },
+  },
+  footer: {
+    fontSize: '.8em',
+    color: 'gray',
+    margin: '0',
+  },
   button: {
     display: 'block',
-    margin: '20px auto 0 auto',
+    margin: '18px auto 0 auto',
     fontSize: '1.1em',
     fontWeight: '600',
     padding: '6px 24px',

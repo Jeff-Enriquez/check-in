@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useStyles from './styles.js'
 
 const NewList = () => {
+  const [userInput, setUserInput] = useState('')
   const classes = useStyles()
+
+  const submitUserInput = () => {
+    console.log(userInput)
+    setUserInput('')
+  }
 
   return (
     <div className={classes.page}>
@@ -18,8 +24,14 @@ const NewList = () => {
           <img className={classes.img} src='/images/step1.png' alt='coping the numbers column and names column'/>
         </div>
         <p className={classes.heading}>Step 2:</p>
+        <p className={classes.info}>Paste the content below.</p>
+        <div className={classes.textAreaContainer}>
+          <textarea className={classes.textArea} placeholder="Paste content here." onChange={e => setUserInput(e.target.value)} value={userInput}></textarea>
+          <p className={classes.footer}>Don't modify it after pasting it. It's ok if there is extra space.</p>
+        </div>
+        <p className={classes.heading}>Step 3:</p>
         <p className={classes.info}>Click the button below to add the new list.</p>
-        <button className={classes.button}>Submit List</button>
+        <button className={classes.button} onClick={() => submitUserInput()}>Submit List</button>
       </div>
     </div>
   )
