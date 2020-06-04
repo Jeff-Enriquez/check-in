@@ -19,28 +19,28 @@ const Header = () => {
             <div className={`${classes.col} ${classes.col1}`}>1000</div>
             <div className={`${classes.col} ${classes.col2}`}>John Doe</div>
             <div className={`${classes.col} ${classes.col3}`}>
-              <button>ADD</button>
+              <button>Add</button>
             </div>
           </li>
           <li className={classes.tableRow}>
             <div className={`${classes.col} ${classes.col1}`}>142</div>
             <div className={`${classes.col} ${classes.col2}`}>Jennifer Smith</div>
             <div className={`${classes.col} ${classes.col3}`}>
-              <button>ADD</button>
+              <button>Add</button>
             </div>
           </li>
           <li className={classes.tableRow}>
             <div className={`${classes.col} ${classes.col1}`}>398</div>
             <div className={`${classes.col} ${classes.col2}`}>John Smith</div>
             <div className={`${classes.col} ${classes.col3}`}>
-              <button>ADD</button>
+              <button>Add</button>
             </div>
           </li>
           <li className={classes.tableRow}>
             <div className={`${classes.col} ${classes.col1}`}>10</div>
             <div className={`${classes.col} ${classes.col2}`}>John Carpenter</div>
             <div className={`${classes.col} ${classes.col3}`}>
-              <button>ADD</button>
+              <button>Add</button>
             </div>
           </li>
         </ul>

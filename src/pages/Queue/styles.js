@@ -35,7 +35,7 @@ const useStyles = createUseStyles( theme => ({
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      width: '100px',
+      width: '90px',
       padding: '5px 0',
       display: 'inline-block',
       border: `1px solid #979797`,
@@ -52,13 +52,13 @@ const useStyles = createUseStyles( theme => ({
     }
   },
   tableHeader: {
-    transform: 'scale(1.02)',
     backgroundColor: 'rgb(173, 216, 230)',
-    fontSize: '14px',
+    fontSize: '1em',
     textTransform: 'uppercase',
     letterSpacing: '0.03em',
   },
   tableRow: {
+    fontSize: '.9em',
     backgroundColor: '#ffffff',
     boxShadow: '0px 4px 5px rgba(173, 216, 230, 0.2), 0px 3px 14px rgba(173, 216, 230, 0.12), 0px 8px 10px rgba(173, 216, 230, 0.14)',
   },
@@ -67,6 +67,7 @@ const useStyles = createUseStyles( theme => ({
   },
   col2: {
     flexBasis: '40%',
+    margin: '0 8px',
   },
   col3: {
     position: 'relative',
