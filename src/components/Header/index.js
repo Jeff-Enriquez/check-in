@@ -40,7 +40,7 @@ const Header = () => {
       <nav className={classes.nav} ref={nav}>
         <Link to='/check-in' className={classes.link} onClick={() => setIsBurgerOpen(false)}>Check In</Link>
         <Link to='/queue' className={classes.link} onClick={() => setIsBurgerOpen(false)}>Queue</Link>
-        <Link to='/edit-list' className={classes.link} onClick={() => setIsBurgerOpen(false)}>Edit List</Link>
+        <Link to='/new-list' className={classes.link} onClick={() => setIsBurgerOpen(false)}>New List</Link>
       </nav>
     </>
   )

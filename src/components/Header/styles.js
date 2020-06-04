@@ -10,7 +10,7 @@ const useStyles = createUseStyles( theme => ({
     top: '0',
     right: '0',
     width: '100%',
-    height: '100vh',
+    height: '100%',
     backgroundColor: theme.backgroundColor1,
     boxSizing: 'border-box',
     zIndex: '-1',

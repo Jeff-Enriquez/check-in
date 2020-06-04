@@ -14,7 +14,7 @@ WebFont.load({
   google: {
     families: [
       'Work Sans:400,500,700',
-      'Lato:400,700',
+      'Lato:400,500,700',
       'sans-serif',
       'Space Mono:400,500', 'monospace',
       'Source Code Pro:400',
