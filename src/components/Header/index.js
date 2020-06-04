@@ -15,11 +15,13 @@ const Header = () => {
   useEffect(() => {
     if(isBurgerOpen) {
       nav.current.className = `${classes.nav} ${classes.display}`
+      burgerContent.current.className = `${classes.burger} ${classes.fixed}`
       line1.current.className = `${classes.burgerLine} ${classes.transformLine1}`
       line2.current.className = classes.displayNone
       line3.current.className = `${classes.burgerLine} ${classes.transformLine3}`
     } else {
       nav.current.className = classes.nav
+      burgerContent.current.className = classes.burger
       line1.current.className = classes.burgerLine
       line2.current.className = classes.burgerLine
       line3.current.className = classes.burgerLine

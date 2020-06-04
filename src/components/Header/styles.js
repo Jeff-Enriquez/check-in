@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles( theme => ({
   nav: {
-    position: 'absolute',
+    position: 'fixed',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -67,6 +67,9 @@ const useStyles = createUseStyles( theme => ({
     transition: 'opacity .5s',
     zIndex: '400',
   },
+  fixed: {
+    position: 'fixed',
+  }
 }))
 
 export default useStyles
