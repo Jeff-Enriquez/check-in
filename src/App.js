@@ -1,20 +1,36 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import Header from './components/Header'
+import React, { useState } from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
+import PrivateRoute from './components/PrivateRoute';
 import CheckIn from './pages/CheckIn'
 import NewList from './pages/NewList'
 import Queue from './pages/Queue'
 import Login from './pages/Login'
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(true)
+
   return (
     <>
-      <Header/>
       <Switch>
-        <Route exact path='/check-in' component={CheckIn}/>
-        <Route exact path='/queue' component={Queue}/>
-        <Route exact path='/new-list' component={NewList}/>
+        <PrivateRoute
+          exact path='/check-in'
+          component={CheckIn} 
+          currentUser={currentUser}
+        />
+        <PrivateRoute
+          exact path='/queue'
+          component={Queue} 
+          currentUser={currentUser}
+        />
+        <PrivateRoute
+          exact path='/new-list'
+          component={NewList} 
+          currentUser={currentUser}
+        />
         <Route exact path='/login' component={Login}/>
+        <Route render={() =>
+        <Redirect to='/login' />
+      } />
       </Switch>
     </>
   )
