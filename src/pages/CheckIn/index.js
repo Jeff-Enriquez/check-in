@@ -8,6 +8,7 @@ const Header = () => {
     <div className={classes.page}>
       <h1 className={classes.pageTitle}>Check In</h1>
       <div className={classes.container}>
+        <input className={classes.search} placeholder='Search by name'></input>
         <ul className={classes.responsiveTable}>
           <li className={classes.tableHeader}>
             <div className={`${classes.col} ${classes.col1}`}>ID</div>
