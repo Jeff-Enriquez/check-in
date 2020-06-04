@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './components/PrivateRoute'
 import CheckIn from './pages/CheckIn'
 import NewList from './pages/NewList'
 import Queue from './pages/Queue'
