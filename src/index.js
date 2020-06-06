@@ -49,7 +49,9 @@ const theme = {
   primaryTextColor: 'black',
   secondaryTextColor: 'white',
   backgroundColor1: 'white',
-  pagePadding: '20px'
+  pagePadding: '20px',
+  letterSpacingText: '0.05em',
+  letterSpacingHeading: '0.2em',
 }
 
 ReactDOM.render(
