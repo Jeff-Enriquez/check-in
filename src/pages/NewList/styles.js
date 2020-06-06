@@ -7,14 +7,14 @@ const useStyles = createUseStyles( theme => ({
   pageTitle: {
     margin: '0',
     textTransform: 'uppercase',
-    letterSpacing: '.2em',
+    letterSpacing: theme.letterSpacingHeading,
     color: theme.primaryTextColor,
     fontFamily: theme.primaryFontFamily,
     fontSize: '2em',
     fontWeight: 'normal',
   },
   container: {
-    fontFamily: 'lato, sans-serif',
+    fontFamily: theme.secondaryFontFamily,
     maxWidth: '485px',
     margin: '50px auto 0 auto',
   },

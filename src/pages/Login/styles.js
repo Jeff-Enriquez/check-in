@@ -65,6 +65,7 @@ const useStyles = createUseStyles( theme => ({
     margin: '30px auto 0 auto',
     fontWeight: 'bold',
     fontSize: '1em',
+    fontFamily: theme.thirdFontFamily,
     letterSpacing: theme.letterSpacingText,
     textTransform: 'uppercase',
     color: 'white',

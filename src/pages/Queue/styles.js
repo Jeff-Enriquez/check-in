@@ -43,11 +43,11 @@ const useStyles = createUseStyles( theme => ({
       borderRadius: '22.5px',
       outline: 'none',
       cursor: 'pointer',
-      fontWeight: 'bold',
+      fontFamily: theme.thirdFontFamily,
       letterSpacing: '.05em',
       '&:hover': {
         backgroundColor: 'lightskyblue',
-        border: '1px solid lightskyblue',
+        // border: '1px solid lightskyblue',
       },
     }
   },

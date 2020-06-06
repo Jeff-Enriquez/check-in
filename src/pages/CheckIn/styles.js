@@ -7,7 +7,7 @@ const useStyles = createUseStyles( theme => ({
   pageTitle: {
     margin: '0',
     textTransform: 'uppercase',
-    letterSpacing: '.2em',
+    letterSpacing: theme.letterSpacingHeading,
     color: theme.primaryTextColor,
     fontFamily: theme.primaryFontFamily,
     fontSize: '2em',
@@ -23,13 +23,13 @@ const useStyles = createUseStyles( theme => ({
     background: '#FFFFFF url(images/search.svg) no-repeat scroll 15px 15px',
     backgroundSize: '24px 24px',
     paddingLeft: '50px',
-    fontFamily: theme.primaryFontFamily,
+    fontFamily: theme.secondaryFontFamily,
     fontSize: '1.1em',
     outline: 'none',
     transform: 'scale(1.02)',
   },
   container: {
-    fontFamily: 'lato, sans-serif',
+    fontFamily: theme.secondaryFontFamily,
     maxWidth: '800px',
     margin: '50px auto 0 auto',
   },
@@ -58,11 +58,9 @@ const useStyles = createUseStyles( theme => ({
       borderRadius: '22.5px',
       outline: 'none',
       cursor: 'pointer',
-      fontWeight: 'bold',
-      letterSpacing: '.05em',
+      fontFamily: theme.thirdFontFamily,
       '&:hover': {
         backgroundColor: 'lightskyblue',
-        border: '1px solid lightskyblue',
       },
     }
   },
@@ -70,7 +68,6 @@ const useStyles = createUseStyles( theme => ({
     backgroundColor: 'rgb(173, 216, 230)',
     fontSize: '1em',
     textTransform: 'uppercase',
-    letterSpacing: '0.03em',
   },
   tableRow: {
     fontSize: '.9em',
