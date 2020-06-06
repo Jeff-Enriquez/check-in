@@ -47,7 +47,6 @@ const useStyles = createUseStyles( theme => ({
       letterSpacing: '.05em',
       '&:hover': {
         backgroundColor: 'lightskyblue',
-        // border: '1px solid lightskyblue',
       },
     }
   },
