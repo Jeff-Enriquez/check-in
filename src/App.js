@@ -27,7 +27,11 @@ function App() {
           component={NewList} 
           currentUser={currentUser}
         />
-        <Route exact path='/login' component={Login}/>
+        <Route exact path='/login' 
+          component={Login}
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+        />
         <Route render={() =>
         <Redirect to='/login' />
       } />
