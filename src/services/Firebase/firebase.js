@@ -25,6 +25,9 @@ class Firebase {
 
   doSignOut = () => this.auth.signOut()
 
+  getList = uid => this.database.collection('List').doc(uid).get()
+
+
 }
 
 const firebase = new Firebase();

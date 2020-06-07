@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import Firebase from '../../services/Firebase/firebase'
 import useStyles from './styles.js'
@@ -13,20 +13,16 @@ const Login = ({ currentUser, setCurrentUser }) => {
 
   const handleForm = async e => {
     e.preventDefault()
+    let email = username + '@site.com'
     try {
-      const { user } = await Firebase.doSignInWithEmailAndPassword(email, password);
-      // await Firebase.database.collection('Users').doc(user.uid)
-      // .get()
-      // .then(function(doc) {
-      //   if(doc.exists) {
-      //     const currentUser = doc.data()
-      //     currentUser['id'] = doc.id
-      //     doSetCurrentUser(currentUser)
-      //   }
-      // })
+      const { user } = await Firebase.doSignInWithEmailAndPassword(email, password).catch((err) => console.log(err))
+      setCurrentUser(user.uid)
+      // const list = await Firebase.getList(user.uid)
       // .catch(function(error) {
       //     setError('Sorry, there is an error with your account')
-      // });
+      // })
+      // console.log('hit2')
+      // console.log(list)
     } catch (err) {
       setError(err)
     }
@@ -34,14 +30,14 @@ const Login = ({ currentUser, setCurrentUser }) => {
 
   return (
     <>
-    {currentUser && <Redirect to='/' />}
+    {currentUser && <Redirect to='/check-in' /> }
     <div className={classes.page}>
       	<form onSubmit={handleForm} className={classes.formContainer}>
           <h1 className={classes.heading}>Fast Queue</h1>
 					<div className={classes.inputContainer}>
             {/* This is the user image */}
             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path className={classes.svg} d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            <input type="username" className={classes.input} placeholder="Username" autoComplete='username' value={username} onChange={e => setUsername(e.target.value)} />
+            <input type="text" className={classes.input} placeholder="Username" autoComplete='username' value={username} onChange={e => setUsername(e.target.value)} />
 					</div>
           <div className={classes.inputContainer}>
             {/* This is the password image */}

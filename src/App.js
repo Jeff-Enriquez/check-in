@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import PrivateRoute from './components/PrivateRoute'
 import CheckIn from './pages/CheckIn'
@@ -7,7 +7,7 @@ import Queue from './pages/Queue'
 import Login from './pages/Login'
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(true)
+  const [currentUser, setCurrentUser] = useState(false)
 
   return (
     <>
@@ -27,14 +27,15 @@ function App() {
           component={NewList} 
           currentUser={currentUser}
         />
-        <Route exact path='/login' 
-          component={Login}
-          currentUser={currentUser}
-          setCurrentUser={setCurrentUser}
+        <Route exact path='/login' render={() => 
+          <Login 
+            setCurrentUser={setCurrentUser}
+            currentUser={currentUser}
+          />}
         />
         <Route render={() =>
-        <Redirect to='/login' />
-      } />
+          <Redirect to='/login' />} 
+        />
       </Switch>
     </>
   )

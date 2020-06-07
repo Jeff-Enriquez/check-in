@@ -9,7 +9,6 @@ const useStyles = createUseStyles( theme => ({
     padding: '20px',
     fontFamily: theme.primaryFontFamily,
     color: theme.primaryTextColor,
-    border: '1px solid red',
     '& *': {
       boxSizing: 'border-box',
     },
