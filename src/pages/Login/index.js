@@ -14,19 +14,25 @@ const Login = ({ currentUser, setCurrentUser }) => {
   const handleForm = async e => {
     e.preventDefault()
     let email = username + '@site.com'
+    let list
     try {
       const { user } = await Firebase.doSignInWithEmailAndPassword(email, password).catch((err) => console.log(err))
-      setCurrentUser(user.uid)
-      // const list = await Firebase.getList(user.uid)
-      // .catch(function(error) {
-      //     setError('Sorry, there is an error with your account')
-      // })
-      // console.log('hit2')
-      // console.log(list)
+      try{
+        list = await Firebase.getList(user.uid)
+      } catch(err){console.log(err)}
     } catch (err) {
       setError(err)
     }
+    // setCurrentUser(list)
   }
+
+  useEffect(() => {
+    const foo = async () => {
+      const list = await Firebase.database.collection('List').doc('GeAT8UytRYSax49VNwSYAzFrp7t1').get()
+      console.log(list)
+    }
+    foo()
+  }, [])
 
   return (
     <>

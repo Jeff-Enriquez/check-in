@@ -18,6 +18,7 @@ class Firebase {
     app.initializeApp(config)
     this.auth = app.auth()
     this.database = app.firestore()
+    // console.log(this.database.collection('List').doc('GeAT8UytRYSax49VNwSYAzFrp7t1').get())
   }
 
   doSignInWithEmailAndPassword = (email, password) =>
@@ -25,11 +26,13 @@ class Firebase {
 
   doSignOut = () => this.auth.signOut()
 
-  getList = uid => this.database.collection('List').doc(uid).get()
-
+  getList = async uid => {
+    const list = await this.database.collection('List').doc('GeAT8UytRYSax49VNwSYAzFrp7t1').get()
+    console.log(list.data())
+  }
 
 }
 
-const firebase = new Firebase();
+const firebase = new Firebase()
 
-export default firebase;
+export default firebase
