@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-import Firebase from '../../services/Firebase/firebase'
 import useStyles from './styles.js'
 
-const Login = ({ currentUser, setCurrentUser }) => {
+const Login = ({ currentUser, setCurrentUser, firebase }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(null)
@@ -14,25 +13,18 @@ const Login = ({ currentUser, setCurrentUser }) => {
   const handleForm = async e => {
     e.preventDefault()
     let email = username + '@site.com'
-    let list
+    let list, uid
     try {
-      const { user } = await Firebase.doSignInWithEmailAndPassword(email, password).catch((err) => console.log(err))
-      try{
-        list = await Firebase.getList(user.uid)
-      } catch(err){console.log(err)}
+      const { user } = await firebase.doSignInWithEmailAndPassword(email, password)
+      uid = user.uid
     } catch (err) {
       setError(err)
     }
-    // setCurrentUser(list)
-  }
-
-  useEffect(() => {
-    const foo = async () => {
-      const list = await Firebase.database.collection('List').doc('GeAT8UytRYSax49VNwSYAzFrp7t1').get()
+    try {
+      list = await firebase.getList(uid)
       console.log(list)
-    }
-    foo()
-  }, [])
+    } catch(err){console.log(err)}
+  }
 
   return (
     <>

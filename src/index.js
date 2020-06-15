@@ -9,6 +9,7 @@ import { SheetsRegistry } from 'react-jss'
 import { JssProvider } from 'react-jss'
 import { BrowserRouter } from 'react-router-dom'
 import WebFont from 'webfontloader'
+import Firebase, { FirebaseContext } from './components/Firebase'
 
 WebFont.load({
   google: {
@@ -59,7 +60,9 @@ ReactDOM.render(
     <ThemeProvider theme={theme}>
       <JssProvider registry={sheets}>
         <BrowserRouter>
-          <App />
+          <FirebaseContext.Provider value={new Firebase()}>
+            <App />
+          </FirebaseContext.Provider>
         </BrowserRouter>
       </JssProvider>
     </ThemeProvider>

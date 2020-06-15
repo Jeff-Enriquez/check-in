@@ -5,6 +5,8 @@ import CheckIn from './pages/CheckIn'
 import NewList from './pages/NewList'
 import Queue from './pages/Queue'
 import Login from './pages/Login'
+import { FirebaseContext } from './components/Firebase';
+
 
 function App() {
   const [currentUser, setCurrentUser] = useState(false)
@@ -28,11 +30,17 @@ function App() {
           currentUser={currentUser}
         />
         <Route exact path='/login' render={() => 
-          <Login 
-            setCurrentUser={setCurrentUser}
-            currentUser={currentUser}
-          />}
-        />
+          <FirebaseContext.Consumer>
+            {firebase => <Login
+              firebase={firebase}
+              setCurrentUser={setCurrentUser}
+              currentUser={currentUser} />}
+          </FirebaseContext.Consumer>
+          // <Login 
+          //   setCurrentUser={setCurrentUser}
+          //   currentUser={currentUser}
+          // />}
+        }/>
         <Route render={() =>
           <Redirect to='/login' />} 
         />

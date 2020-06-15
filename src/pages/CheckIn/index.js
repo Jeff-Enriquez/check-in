@@ -1,9 +1,10 @@
 import React from 'react'
 import useStyles from './styles.js'
+import { connect } from 'react-redux'
 
-const Header = () => {
+const CheckIn = () => {
   const classes = useStyles()
-
+  console.log(this.props)
   return (
     <div className={classes.page}>
       <h1 className={classes.pageTitle}>Check In</h1>
@@ -48,5 +49,9 @@ const Header = () => {
     </div>
   )
 }
-
-export default Header
+const mapStateToProps = (state) => {
+  return {
+    list: state.list.list
+  }
+}
+export default connect(mapStateToProps)(CheckIn)

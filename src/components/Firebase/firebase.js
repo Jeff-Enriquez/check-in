@@ -18,7 +18,6 @@ class Firebase {
     app.initializeApp(config)
     this.auth = app.auth()
     this.database = app.firestore()
-    // console.log(this.database.collection('List').doc('GeAT8UytRYSax49VNwSYAzFrp7t1').get())
   }
 
   doSignInWithEmailAndPassword = (email, password) =>
@@ -33,6 +32,4 @@ class Firebase {
 
 }
 
-const firebase = new Firebase()
-
-export default firebase
+export default Firebase
