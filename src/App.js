@@ -12,6 +12,11 @@ function App() {
   const [user, setUser] = useState(null)
   const [list, setList] = useState(null)
 
+  const signOut = () => {
+    setUser(null)
+    setList(null)
+  }
+
   return (
     <>
       <Switch>
@@ -19,16 +24,25 @@ function App() {
           exact path='/check-in'
           component={CheckIn} 
           user={user}
+          list={list}
+          setList={setList}
+          signOut={signOut}
         />
         <PrivateRoute
           exact path='/queue'
           component={Queue} 
           user={user}
+          list={list}
+          setList={setList}
+          signOut={signOut}
         />
         <PrivateRoute
           exact path='/new-list'
           component={NewList} 
           user={user}
+          list={list}
+          setList={setList}
+          signOut={signOut}
         />
         <Route exact path='/login' render={() => 
           <FirebaseContext.Consumer>

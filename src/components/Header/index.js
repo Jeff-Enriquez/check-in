@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import useStyles from './styles.js'
 
-const Header = () => {
+const Header = ({ firebase, signOut }) => {
   const classes = useStyles()
   const [isBurgerOpen, setIsBurgerOpen] = useState(false)
   const nav = useRef(null)
@@ -11,6 +11,10 @@ const Header = () => {
   const line2 = useRef(null)
   const line3 = useRef(null)
 
+  const doSignOut = () => {
+    signOut()
+    firebase.doSignOut()
+  }
 
   useEffect(() => {
     if(isBurgerOpen) {
@@ -43,6 +47,7 @@ const Header = () => {
         <Link to='/check-in' className={classes.link} onClick={() => setIsBurgerOpen(false)}>Check In</Link>
         <Link to='/queue' className={classes.link} onClick={() => setIsBurgerOpen(false)}>Queue</Link>
         <Link to='/new-list' className={classes.link} onClick={() => setIsBurgerOpen(false)}>New List</Link>
+        <p onClick={() => doSignOut()}>Sign Out</p>
       </nav>
     </>
   )
