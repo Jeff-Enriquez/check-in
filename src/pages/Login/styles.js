@@ -23,12 +23,15 @@ const useStyles = createUseStyles( theme => ({
     fontSize: '2em',
     fontWeight: 'normal',
   },
-  formContainer: {
+  content: {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    padding: '28px 38px',
+  },
+  formContainer: {
+    position: 'relative',
+    padding: '20px 38px 28px 38px',
     margin: '0 auto',
     width: '345px',
     boxShadow: '0px 4px 5px rgba(0, 0, 0, 0.2), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 8px 10px rgba(0, 0, 0, 0.14)',
@@ -76,6 +79,19 @@ const useStyles = createUseStyles( theme => ({
     outline: 'none',
     cursor: 'pointer',
   },
+  error: {
+    position: 'absolute',
+    margin: '0',
+    top: '130px',
+    width: 'fit-content',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    color: 'red',
+    transition: 'opacity 1s'
+  },
+  fadeOut: {
+    opacity: '0'
+  }
 }))
 
 export default useStyles
