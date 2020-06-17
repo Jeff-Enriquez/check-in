@@ -26,8 +26,8 @@ class Firebase {
   doSignOut = () => this.auth.signOut()
 
   getList = async uid => {
-    const list = await this.database.collection('List').doc('GeAT8UytRYSax49VNwSYAzFrp7t1').get()
-    console.log(list.data())
+    const list = await this.database.collection('List').doc(uid).get()
+    return list.data()
   }
 
 }

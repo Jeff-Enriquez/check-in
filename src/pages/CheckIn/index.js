@@ -1,10 +1,9 @@
 import React from 'react'
 import useStyles from './styles.js'
-import { connect } from 'react-redux'
 
 const CheckIn = () => {
   const classes = useStyles()
-  console.log(this.props)
+  
   return (
     <div className={classes.page}>
       <h1 className={classes.pageTitle}>Check In</h1>
@@ -49,9 +48,5 @@ const CheckIn = () => {
     </div>
   )
 }
-const mapStateToProps = (state) => {
-  return {
-    list: state.list.list
-  }
-}
-export default connect(mapStateToProps)(CheckIn)
+
+export default CheckIn
