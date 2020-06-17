@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { Redirect } from 'react-router-dom'
 import useStyles from './styles.js'
 
-const Login = ({ currentUser, setCurrentUser, firebase }) => {
+const Login = ({ setUser, setList, user, firebase }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(null)
@@ -18,6 +18,7 @@ const Login = ({ currentUser, setCurrentUser, firebase }) => {
     try {
       const { user } = await firebase.doSignInWithEmailAndPassword(email, password)
       uid = user.uid
+      setUser(user)
     } catch (err) {
       errorElement.current.className = classes.error
       if(err.code === 'auth/user-not-found'){
@@ -31,12 +32,13 @@ const Login = ({ currentUser, setCurrentUser, firebase }) => {
     }
     try {
       list = await firebase.getList(uid)
+      setList(list)
     } catch(err){}
   }
 
   return (
     <>
-    {currentUser && <Redirect to='/check-in' /> }
+    {user && <Redirect to='/check-in' /> }
     <div className={classes.page}>
       <div className={classes.content}>
         <form onSubmit={handleForm} className={classes.formContainer}>

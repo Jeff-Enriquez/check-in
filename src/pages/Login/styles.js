@@ -82,7 +82,7 @@ const useStyles = createUseStyles( theme => ({
   error: {
     position: 'absolute',
     margin: '0',
-    top: '130px',
+    top: '290px',
     width: 'fit-content',
     left: '50%',
     transform: 'translateX(-50%)',

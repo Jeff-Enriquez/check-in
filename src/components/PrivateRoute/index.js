@@ -2,8 +2,8 @@ import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import Header from '../Header'
 
-const PrivateRoute = ({ component: Component, currentUser, exact, path }) => (
-  currentUser
+const PrivateRoute = ({ component: Component, user, exact, path }) => (
+  user
     ?
     <Route exact path={path} render={() => (
     <>

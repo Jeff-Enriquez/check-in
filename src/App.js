@@ -9,7 +9,8 @@ import { FirebaseContext } from './components/Firebase';
 
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(false)
+  const [user, setUser] = useState(null)
+  const [list, setList] = useState(null)
 
   return (
     <>
@@ -17,29 +18,26 @@ function App() {
         <PrivateRoute
           exact path='/check-in'
           component={CheckIn} 
-          currentUser={currentUser}
+          user={user}
         />
         <PrivateRoute
           exact path='/queue'
           component={Queue} 
-          currentUser={currentUser}
+          user={user}
         />
         <PrivateRoute
           exact path='/new-list'
           component={NewList} 
-          currentUser={currentUser}
+          user={user}
         />
         <Route exact path='/login' render={() => 
           <FirebaseContext.Consumer>
             {firebase => <Login
               firebase={firebase}
-              setCurrentUser={setCurrentUser}
-              currentUser={currentUser} />}
+              setUser={setUser}
+              setList={setList}
+              user={user} />}
           </FirebaseContext.Consumer>
-          // <Login 
-          //   setCurrentUser={setCurrentUser}
-          //   currentUser={currentUser}
-          // />}
         }/>
         <Route render={() =>
           <Redirect to='/login' />} 
