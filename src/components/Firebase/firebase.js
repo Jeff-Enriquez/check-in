@@ -25,10 +25,20 @@ class Firebase {
 
   doSignOut = () => this.auth.signOut()
 
-  getList = async uid => {
-    const list = await this.database.collection('List').doc(uid).get()
+  getCheckIn = async uid => {
+    const list = await this.database.collection('CheckIn').doc(uid).get()
     return list.data()
   }
+
+  getQueue = async uid => {
+    const list = await this.database.collection('Queue').doc(uid).get()
+    return list.data()
+  }
+
+  setCheckIn = (uid, data) => 
+    this.database.collection('List').doc(uid).update({
+      patients: data,
+    })
 
 }
 

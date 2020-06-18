@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { Redirect } from 'react-router-dom'
 import useStyles from './styles.js'
 
-const Login = ({ setUser, setList, user, firebase }) => {
+const Login = ({ setUser, user, firebase }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(null)
@@ -30,10 +30,10 @@ const Login = ({ setUser, setList, user, firebase }) => {
         errorElement.current.className = `${classes.error} ${classes.fadeOut}`
       }, 3000)
     }
-    try {
-      list = await firebase.getList(uid)
-      setList(list)
-    } catch(err){}
+    // try {
+    //   list = await firebase.getList(uid)
+    //   setList(list)
+    // } catch(err){}
   }
 
   return (

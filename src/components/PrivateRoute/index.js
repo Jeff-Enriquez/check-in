@@ -4,7 +4,7 @@ import Header from '../Header'
 import { FirebaseContext } from '../Firebase';
 
 
-const PrivateRoute = ({ component: Component, user, path, signOut, ...rest }) => (
+const PrivateRoute = ({ component: Component, user, path, signOut }) => (
   user
     ?
     <Route exact path={path} render={() => (
@@ -12,8 +12,8 @@ const PrivateRoute = ({ component: Component, user, path, signOut, ...rest }) =>
       <FirebaseContext.Consumer>
         {firebase => 
           <>
-            <Header firebase={firebase} signOut={signOut} {...rest}/>
-            <Component firebase={firebase} {...rest}/>
+            <Header firebase={firebase} signOut={signOut}/>
+            <Component firebase={firebase} user={user} />
           </>
         }
       </FirebaseContext.Consumer>

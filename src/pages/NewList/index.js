@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import useStyles from './styles.js'
 
-const NewList = () => {
+const NewList = ({ firebase, user }) => {
   const [userInput, setUserInput] = useState('')
+  const [redirect, setRedirect] = useState(false)
+
   const classes = useStyles()
 
   const submitUserInput = () => {
@@ -14,12 +17,15 @@ const NewList = () => {
       if(!number){
         break
       }
-      data.push([number, name])
+      data.push(number, name)
     }
+    firebase.setCheckIn(user.uid, data)
     setUserInput('')
   }
 
   return (
+    <>
+    {redirect && <Redirect to='/queue' /> }
     <div className={classes.page}>
       <h1 className={classes.pageTitle}>New List</h1>
       <div className={classes.container}>
@@ -43,6 +49,7 @@ const NewList = () => {
         <button className={classes.button} onClick={() => submitUserInput()}>Submit List</button>
       </div>
     </div>
+    </>
   )
 }
 
