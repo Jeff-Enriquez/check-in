@@ -3,10 +3,6 @@ import { createUseStyles } from 'react-jss'
 const useStyles = createUseStyles( theme => ({
   nav: {
     position: 'fixed',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
     top: '0',
     right: '0',
     width: '100%',
@@ -16,18 +12,29 @@ const useStyles = createUseStyles( theme => ({
     zIndex: '-1',
     opacity: '0',
     transition: 'opacity 0s',
+    fontFamily: theme.primaryFontFamily,
+    textTransform: 'uppercase',
+    letterSpacing: '.2em', 
     '& $link:last-child': {
       marginBottom: '0'
     },
   },
+  linkContainer: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    '& $link:last-of-type': {
+      margin: '0 auto',
+    },
+  },
   link: {
+    display: 'block',
+    width: 'fit-content',
     textDecoration: 'none',
-    textTransform: 'uppercase',
-    letterSpacing: '.2em',
     color: theme.primaryTextColor,
-    fontFamily: theme.primaryFontFamily,
     fontSize: '2em',
-    marginBottom: '80px'
+    margin: '0 auto 80px auto',
   },
 /********************** BURGER ICON **********************/
   burger: {
@@ -69,7 +76,17 @@ const useStyles = createUseStyles( theme => ({
   },
   fixed: {
     position: 'fixed',
-  }
+  },
+  signOut: {
+    display: 'block',
+    width: 'fit-content',
+    margin: '70px auto 0 auto',
+    color: 'gray',
+    cursor: 'pointer',
+    '&:hover':{
+      color: 'darkred',
+    },
+  },
 }))
 
 export default useStyles

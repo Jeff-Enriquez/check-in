@@ -44,10 +44,12 @@ const Header = ({ firebase, signOut }) => {
         <div className={classes.burgerLine} ref={line3}></div>
       </div>
       <nav className={classes.nav} ref={nav}>
-        <Link to='/check-in' className={classes.link} onClick={() => setIsBurgerOpen(false)}>Check In</Link>
-        <Link to='/queue' className={classes.link} onClick={() => setIsBurgerOpen(false)}>Queue</Link>
-        <Link to='/new-list' className={classes.link} onClick={() => setIsBurgerOpen(false)}>New List</Link>
-        <p onClick={() => doSignOut()}>Sign Out</p>
+        <div className={classes.linkContainer}>
+          <Link to='/check-in' className={classes.link} onClick={() => setIsBurgerOpen(false)}>Check In</Link>
+          <Link to='/queue' className={classes.link} onClick={() => setIsBurgerOpen(false)}>Queue</Link>
+          <Link to='/new-list' className={classes.link} onClick={() => setIsBurgerOpen(false)}>New List</Link>
+          <p className={classes.signOut} onClick={() => doSignOut()}>Sign Out</p>
+        </div>
       </nav>
     </>
   )

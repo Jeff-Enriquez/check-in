@@ -9,7 +9,7 @@ import { FirebaseContext } from './components/Firebase';
 
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(true)
   const [list, setList] = useState(null)
 
   const signOut = () => {
