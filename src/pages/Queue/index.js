@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import useStyles from './styles.js'
 
-const Header = () => {
+const Header = ({ user, firebase }) => {
+  const [list, setList] = useState(<></>)
+
   const classes = useStyles()
+
+  useEffect(() => {
+    firebase.database.collection("Queue").doc(user.uid)
+      .onSnapshot((doc) => {
+        const data = doc.data().patients
+        let listElements = []
+        for(let i = 0; i < data.length; i += 2){
+          listElements.push(
+            <li className={classes.tableRow} key={i}>
+              <div className={`${classes.col} ${classes.col1}`}>{data[i]}</div>
+              <div className={`${classes.col} ${classes.col2}`}>{data[i+1]}</div>
+              <div className={`${classes.col} ${classes.col3}`}>
+                <button>Remove</button>
+              </div>
+            </li>
+          )
+        }
+        setList(listElements)
+      })
+    return
+  }, [])
 
   return (
     <div className={classes.page}>
@@ -14,34 +37,7 @@ const Header = () => {
             <div className={`${classes.col} ${classes.col2}`}>Name</div>
             <div className={`${classes.col} ${classes.col3}`}>Remove</div>
           </li>
-          <li className={classes.tableRow}>
-            <div className={`${classes.col} ${classes.col1}`}>1000</div>
-            <div className={`${classes.col} ${classes.col2}`}>John Doe</div>
-            <div className={`${classes.col} ${classes.col3}`}>
-              <button>Remove</button>
-            </div>
-          </li>
-          <li className={classes.tableRow}>
-            <div className={`${classes.col} ${classes.col1}`}>142</div>
-            <div className={`${classes.col} ${classes.col2}`}>Jennifer Smith</div>
-            <div className={`${classes.col} ${classes.col3}`}>
-              <button>Remove</button>
-            </div>
-          </li>
-          <li className={classes.tableRow}>
-            <div className={`${classes.col} ${classes.col1}`}>398</div>
-            <div className={`${classes.col} ${classes.col2}`}>John Smith</div>
-            <div className={`${classes.col} ${classes.col3}`}>
-              <button>Remove</button>
-            </div>
-          </li>
-          <li className={classes.tableRow}>
-            <div className={`${classes.col} ${classes.col1}`}>10</div>
-            <div className={`${classes.col} ${classes.col2}`}>John Carpenter</div>
-            <div className={`${classes.col} ${classes.col3}`}>
-              <button>Remove</button>
-            </div>
-          </li>
+          {list}
         </ul>
       </div>
     </div>
