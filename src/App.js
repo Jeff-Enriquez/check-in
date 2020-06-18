@@ -5,18 +5,24 @@ import CheckIn from './pages/CheckIn'
 import NewList from './pages/NewList'
 import Queue from './pages/Queue'
 import Login from './pages/Login'
-import { FirebaseContext } from './components/Firebase';
-
 
 function App({ firebase }) {
   const [user, setUser] = useState(null)
-  const [list, setList] = useState(null)
 
   const signOut = () => {
     setUser(null)
-    setList(null)
   }
   
+  useEffect(() => {
+    firebase.auth.onAuthStateChanged(user => {
+      if(user){
+        setUser(user)
+      } else {
+        setUser(null)
+      }
+    })
+    return
+  }, [])
 
   return (
     <>
@@ -25,8 +31,6 @@ function App({ firebase }) {
           exact path='/check-in'
           component={CheckIn} 
           user={user}
-          list={list}
-          setList={setList}
           signOut={signOut}
           firebase={firebase}
         />
@@ -34,8 +38,6 @@ function App({ firebase }) {
           exact path='/queue'
           component={Queue} 
           user={user}
-          list={list}
-          setList={setList}
           signOut={signOut}
           firebase={firebase}
         />
@@ -43,8 +45,6 @@ function App({ firebase }) {
           exact path='/new-list'
           component={NewList} 
           user={user}
-          list={list}
-          setList={setList}
           signOut={signOut}
           firebase={firebase}
         />
@@ -52,7 +52,6 @@ function App({ firebase }) {
           <Login
             firebase={firebase}
             setUser={setUser}
-            setList={setList}
             user={user} 
           />
         }/>

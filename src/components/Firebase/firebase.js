@@ -36,7 +36,7 @@ class Firebase {
   }
 
   setCheckIn = (uid, data) => 
-    this.database.collection('List').doc(uid).update({
+    this.database.collection('CheckIn').doc(uid).update({
       patients: data,
     })
 
