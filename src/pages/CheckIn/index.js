@@ -5,19 +5,23 @@ const CheckIn = ({ user, firebase }) => {
   const [list, setList] = useState(<></>)
 
   const classes = useStyles()
+
+  const addToQueue = i => {
+    
+  }
   
   useEffect(() => {
     firebase.database.collection("CheckIn").doc(user.uid)
       .onSnapshot((doc) => {
         const data = doc.data().patients
         let listElements = []
-        for(let i = 0; i < data.length; i += 2){
+        for (const property in data) {
           listElements.push(
-            <li className={classes.tableRow} key={i}>
-              <div className={`${classes.col} ${classes.col1}`}>{data[i]}</div>
-              <div className={`${classes.col} ${classes.col2}`}>{data[i+1]}</div>
+            <li className={classes.tableRow} key={property}>
+              <div className={`${classes.col} ${classes.col1}`}>{property}</div>
+              <div className={`${classes.col} ${classes.col2}`}>{data[property]}</div>
               <div className={`${classes.col} ${classes.col3}`}>
-                <button>Add</button>
+                <button onClick={() => addToQueue(property)}>Add</button>
               </div>
             </li>
           )

@@ -10,14 +10,14 @@ const NewList = ({ firebase, user }) => {
 
   const submitUserInput = () => {
     let input = userInput.split(/\n/)
-    let data = []
+    let data = {}
     let number, name
     for(let i=0; i < input.length; i++){
       [number, name] = input[i].split(/\t/)
       if(!number){
         break
       }
-      data.push(number, name)
+      data[number] = name
     }
     firebase.setCheckIn(user.uid, data)
     setUserInput('')

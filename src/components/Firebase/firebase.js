@@ -25,15 +25,21 @@ class Firebase {
 
   doSignOut = () => this.auth.signOut()
 
-  getCheckIn = async uid => {
-    const list = await this.database.collection('CheckIn').doc(uid).get()
-    return list.data()
+  // getCheckIn = async uid => {
+  //   const list = await this.database.collection('CheckIn').doc(uid).get()
+  //   return list.data()
+  // }
+
+  addToQueue = (uid, data) => {
+    this.database.collection('Queue').doc(uid).update({
+      patients: app.firestore.FieldValue.arrayUnion(...data),
+    })
   }
 
-  getQueue = async uid => {
-    const list = await this.database.collection('Queue').doc(uid).get()
-    return list.data()
-  }
+  // getQueue = async uid => {
+  //   const list = await this.database.collection('Queue').doc(uid).get()
+  //   return list.data()
+  // }
 
   setCheckIn = (uid, data) => 
     this.database.collection('CheckIn').doc(uid).update({
