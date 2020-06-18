@@ -18,7 +18,7 @@ function App({ firebase }) {
       if(user){
         setUser(user)
       } else {
-        setUser(null)
+        setUser(undefined)
       }
     })
     return

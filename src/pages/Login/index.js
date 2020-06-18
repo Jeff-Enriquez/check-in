@@ -39,6 +39,7 @@ const Login = ({ setUser, user, firebase }) => {
   return (
     <>
     {user && <Redirect to='/check-in' /> }
+    {user === undefined &&
     <div className={classes.page}>
       <div className={classes.content}>
         <form onSubmit={handleForm} className={classes.formContainer}>
@@ -57,7 +58,7 @@ const Login = ({ setUser, user, firebase }) => {
           <p className={classes.error} ref={errorElement}>{error}</p>
         </form>
       </div>
-    </div>
+    </div>}
     </>
   )
 }
