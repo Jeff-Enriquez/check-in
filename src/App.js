@@ -8,7 +8,7 @@ import Login from './pages/Login'
 import { FirebaseContext } from './components/Firebase';
 
 
-function App() {
+function App({ firebase }) {
   const [user, setUser] = useState(null)
   const [list, setList] = useState(null)
 
@@ -16,6 +16,7 @@ function App() {
     setUser(null)
     setList(null)
   }
+  
 
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
           list={list}
           setList={setList}
           signOut={signOut}
+          firebase={firebase}
         />
         <PrivateRoute
           exact path='/queue'
@@ -35,6 +37,7 @@ function App() {
           list={list}
           setList={setList}
           signOut={signOut}
+          firebase={firebase}
         />
         <PrivateRoute
           exact path='/new-list'
@@ -43,15 +46,15 @@ function App() {
           list={list}
           setList={setList}
           signOut={signOut}
+          firebase={firebase}
         />
         <Route exact path='/login' render={() => 
-          <FirebaseContext.Consumer>
-            {firebase => <Login
-              firebase={firebase}
-              setUser={setUser}
-              setList={setList}
-              user={user} />}
-          </FirebaseContext.Consumer>
+          <Login
+            firebase={firebase}
+            setUser={setUser}
+            setList={setList}
+            user={user} 
+          />
         }/>
         <Route render={() =>
           <Redirect to='/login' />} 
