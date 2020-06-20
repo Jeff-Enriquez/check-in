@@ -5,10 +5,6 @@ const CheckIn = ({ user, firebase }) => {
   const [list, setList] = useState(<></>)
 
   const classes = useStyles()
-
-  const addToQueue = i => {
-    
-  }
   
   useEffect(() => {
     firebase.database.collection("CheckIn").doc(user.uid)
@@ -21,7 +17,7 @@ const CheckIn = ({ user, firebase }) => {
               <div className={`${classes.col} ${classes.col1}`}>{property}</div>
               <div className={`${classes.col} ${classes.col2}`}>{data[property]}</div>
               <div className={`${classes.col} ${classes.col3}`}>
-                <button onClick={() => addToQueue(property)}>Add</button>
+                <button onClick={() => firebase.moveToQueue(user.uid, property, data[property])}>Add</button>
               </div>
             </li>
           )

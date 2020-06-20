@@ -25,25 +25,29 @@ class Firebase {
 
   doSignOut = () => this.auth.signOut()
 
-  // getCheckIn = async uid => {
-  //   const list = await this.database.collection('CheckIn').doc(uid).get()
-  //   return list.data()
-  // }
-
-  addToQueue = (uid, data) => {
-    this.database.collection('Queue').doc(uid).update({
-      patients: app.firestore.FieldValue.arrayUnion(...data),
+  moveToQueue = async (uid, key, value) => {
+    console.log('hit')
+    const checkIn = await this.database.collection('CheckIn').doc(uid).get()
+    let checkInPatients = checkIn.data()
+    delete checkInPatients[key]
+    const patientKey = `patients.${key}`
+    this.database.collection('CheckIn').doc(uid).update({
+      [patientKey]: app.firestore.FieldValue.delete()
     })
+    // const queue = await this.database.collection('Queue').doc(uid).get()
+    // let queuePatients = queue.data()
+    // queuePatients[key] = value
+    await this.database.collection('Queue').doc(uid).update({
+      patients: app.firestore.FieldValue.arrayUnion(
+        {[key]: value}
+      )
+    })
+    console.log('hit')
   }
-
-  // getQueue = async uid => {
-  //   const list = await this.database.collection('Queue').doc(uid).get()
-  //   return list.data()
-  // }
 
   setCheckIn = (uid, data) => 
     this.database.collection('CheckIn').doc(uid).update({
-      patients: data,
+      patients: data
     })
 
 }

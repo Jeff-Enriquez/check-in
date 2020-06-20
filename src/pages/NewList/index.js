@@ -21,6 +21,7 @@ const NewList = ({ firebase, user }) => {
     }
     firebase.setCheckIn(user.uid, data)
     setUserInput('')
+    setRedirect(true)
   }
 
   return (

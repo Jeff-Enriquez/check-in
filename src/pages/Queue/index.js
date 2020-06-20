@@ -6,26 +6,38 @@ const Header = ({ user, firebase }) => {
 
   const classes = useStyles()
 
-  const removeFromQueue = () => {
-
-  }
-
   useEffect(() => {
     firebase.database.collection("Queue").doc(user.uid)
       .onSnapshot((doc) => {
         const data = doc.data().patients
         let listElements = []
-        for (const property in data) {
+        for (let i = 0; i < data.length; i++) {
+          let object = data[i]
+          let number = Object.keys(object)[0]
+          let name = object[number]
           listElements.push(
-            <li className={classes.tableRow} key={property}>
-              <div className={`${classes.col} ${classes.col1}`}>{property}</div>
-              <div className={`${classes.col} ${classes.col2}`}>{data[property]}</div>
+            <li className={classes.tableRow} key={number}>
+              <div className={`${classes.col} ${classes.col1}`}>{number}</div>
+              <div className={`${classes.col} ${classes.col2}`}>{name}</div>
               <div className={`${classes.col} ${classes.col3}`}>
-                <button onClick={() => removeFromQueue(property)}>Add</button>
+                <button>Remove</button>
               </div>
             </li>
           )
         }
+        // const data = doc.data().patients
+        // let listElements = []
+        // for (const property in data) {
+        //   listElements.push(
+        //     <li className={classes.tableRow} key={property}>
+        //       <div className={`${classes.col} ${classes.col1}`}>{property}</div>
+        //       <div className={`${classes.col} ${classes.col2}`}>{data[property]}</div>
+        //       <div className={`${classes.col} ${classes.col3}`}>
+        //         <button>Remove</button>
+        //       </div>
+        //     </li>
+        //   )
+        // }
         setList(listElements)
       })
     return
