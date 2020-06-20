@@ -19,14 +19,14 @@ const NewList = ({ firebase, user }) => {
       }
       data[number] = name
     }
-    firebase.setCheckIn(user.uid, data)
+    firebase.addNewList(user.uid, data)
     setUserInput('')
     setRedirect(true)
   }
 
   return (
     <>
-    {redirect && <Redirect to='/queue' /> }
+    {redirect && <Redirect to='/check-in' /> }
     <div className={classes.page}>
       <h1 className={classes.pageTitle}>New List</h1>
       <div className={classes.container}>

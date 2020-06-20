@@ -26,7 +26,6 @@ class Firebase {
   doSignOut = () => this.auth.signOut()
 
   moveToQueue = async (uid, key, value) => {
-    console.log('hit')
     const checkIn = await this.database.collection('CheckIn').doc(uid).get()
     let checkInPatients = checkIn.data()
     delete checkInPatients[key]
@@ -34,21 +33,27 @@ class Firebase {
     this.database.collection('CheckIn').doc(uid).update({
       [patientKey]: app.firestore.FieldValue.delete()
     })
-    // const queue = await this.database.collection('Queue').doc(uid).get()
-    // let queuePatients = queue.data()
-    // queuePatients[key] = value
-    await this.database.collection('Queue').doc(uid).update({
+    this.database.collection('Queue').doc(uid).update({
       patients: app.firestore.FieldValue.arrayUnion(
         {[key]: value}
       )
     })
-    console.log('hit')
   }
 
-  setCheckIn = (uid, data) => 
+  addNewList = (uid, data) => {
     this.database.collection('CheckIn').doc(uid).update({
       patients: data
     })
+    this.database.collection('Queue').doc(uid).update({
+      patients: {}
+    })
+  }
+
+  removeFromQueue = (uid, object) => {
+    this.database.collection('Queue').doc(uid).update({
+      patients: app.firestore.FieldValue.arrayRemove(object)
+    })
+  }
 
 }
 
