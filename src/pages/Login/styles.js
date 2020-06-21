@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles( theme => ({
   page: {
-    position: 'relative',
+    position: 'fixed',
     boxSizing: 'border-box',
     width: '100%',
     height: '100vh',
@@ -91,6 +91,22 @@ const useStyles = createUseStyles( theme => ({
   },
   fadeOut: {
     opacity: '0'
+  },
+  credits: {
+    position: 'absolute',
+    bottom: '20px',
+    right: '20px',
+    color: 'gray',
+    cursor: 'pointer',
+    outline: 'none',
+    fontFamily: theme.primaryFontFamily,
+    textTransform: 'uppercase',
+    letterSpacing: theme.letterSpacingText,
+    backgroundColor: 'transparent',
+    border: 'none',
+    '&:hover':{
+      color: 'black',
+    },
   }
 }))
 

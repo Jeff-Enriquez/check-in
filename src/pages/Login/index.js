@@ -1,11 +1,14 @@
 import React, { useState, useRef } from 'react'
 import { Redirect } from 'react-router-dom'
 import useStyles from './styles.js'
+import Credits from '../../components/Credits'
 
 const Login = ({ setUser, user, firebase }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(null)
+  const [creditsIsOpen, setCreditsIsOpen] = useState(false)
+
   const errorElement = useRef(null)
 
 
@@ -30,16 +33,12 @@ const Login = ({ setUser, user, firebase }) => {
         errorElement.current.className = `${classes.error} ${classes.fadeOut}`
       }, 3000)
     }
-    // try {
-    //   list = await firebase.getList(uid)
-    //   setList(list)
-    // } catch(err){}
   }
 
   return (
     <>
     {user && <Redirect to='/check-in' /> }
-    {user === undefined &&
+    {user === undefined && <>
     <div className={classes.page}>
       <div className={classes.content}>
         <form onSubmit={handleForm} className={classes.formContainer}>
@@ -58,7 +57,10 @@ const Login = ({ setUser, user, firebase }) => {
           <p className={classes.error} ref={errorElement}>{error}</p>
         </form>
       </div>
-    </div>}
+      <button className={classes.credits} onClick={() => setCreditsIsOpen(true)}>Credits</button>
+    </div>
+    <Credits creditsIsOpen={creditsIsOpen} setCreditsIsOpen={setCreditsIsOpen} />
+    </>}
     </>
   )
 }
