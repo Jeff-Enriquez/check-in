@@ -2,8 +2,7 @@ import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles(theme => ({
   page: {
-    // display: 'none',
-    display: 'relative',
+    display: 'none',
     position: 'fixed',
     width: '100%',
     height: '100%',
@@ -23,14 +22,24 @@ const useStyles = createUseStyles(theme => ({
       letterSpacing: theme.letterSpacingText,
       cursor: 'pointer',
       color: '#707070',
+      outline: 'none',
     },
     '& button:hover': {
       color: '#780000',
+    },
+    '& *': {
+      boxSizing: 'border-box',
     }
+  },
+  display: {
+    display: 'block',
   },
   content: {
     width: 'fit-content',
     margin: '0 auto',
+  },
+  headingContainer: {
+    marginTop: '40px',
   },
   heading: {
     display: 'inline',
@@ -38,20 +47,19 @@ const useStyles = createUseStyles(theme => ({
     letterSpacing: theme.letterSpacingText,
   },
   name: {
-    display: 'inline-block',
+    display: 'block',
     margin: '0',
     fontFamily: theme.primaryFontFamily,
     letterSpacing: theme.letterSpacingText,
   },
-  display: {
-    display: 'relative',
-  },
   profileContainer: {
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'left',
     marginTop: '20px',
     '& img': {
+      marginBottom: '20px',
       width: '150px',
       height: '150px',
       borderRadius: '50%',
@@ -61,7 +69,8 @@ const useStyles = createUseStyles(theme => ({
   textContainer: {
     display: 'inline',
     marginLeft: '20px',
-    maxWidth: '500px',
+    maxWidth: '400px',
+    textAlign: 'center',
     fontFamily: theme.secondaryFontFamily,
     '& p': {
       margin: '0',
@@ -71,36 +80,15 @@ const useStyles = createUseStyles(theme => ({
   links: {
     marginTop: '10px',
     textAlign: 'left',
+    position: 'absolute',
+    bottom: '30px',
+    left: '30px',
   },
   bold: {
     fontWeight: 'bold',
   },
   light: {
     fontWeight: '300',
-  },
-  headingContainer: {},
-  '@media (max-width: 850px)':{
-    profileContainer: {
-      flexDirection: 'column',
-      '& img': {
-        marginBottom: '20px',
-      }
-    },
-    headingContainer: {
-      marginTop: '40px',
-    },
-    textContainer: {
-      textAlign: 'center',
-      maxWidth: '400px',
-    },
-    links: {
-      position: 'absolute',
-      bottom: '30px',
-      left: '30px',
-    },
-    name: {
-      display: 'block',
-    },
   },
   '@media (max-width: 480px)': {
     heading: {
