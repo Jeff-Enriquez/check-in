@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import useStyles from './styles.js'
+import Credits from '../Credits'
 
 const Header = ({ firebase, signOut }) => {
   const classes = useStyles()
   const [isBurgerOpen, setIsBurgerOpen] = useState(false)
+  const [creditsIsOpen, setCreditsIsOpen] = useState(false)
   const nav = useRef(null)
   const burgerContent = useRef(null)
   const line1 = useRef(null)
@@ -50,7 +52,9 @@ const Header = ({ firebase, signOut }) => {
           <Link to='/new-list' className={classes.link} onClick={() => setIsBurgerOpen(false)}>New List</Link>
           <p className={classes.signOut} onClick={() => doSignOut()}>Sign Out</p>
         </div>
+        <button className={classes.credits} onClick={() => setCreditsIsOpen(true)}>Credits</button>
       </nav>
+      <Credits creditsIsOpen={creditsIsOpen} setCreditsIsOpen={setCreditsIsOpen} />
     </>
   )
 }
