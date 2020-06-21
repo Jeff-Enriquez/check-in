@@ -74,6 +74,8 @@ const useStyles = createUseStyles( theme => ({
     transition: 'opacity .5s',
     zIndex: '400',
   },
+
+/********************** MISC. **********************/
   fixed: {
     position: 'fixed',
   },
@@ -87,6 +89,22 @@ const useStyles = createUseStyles( theme => ({
       color: 'darkred',
     },
   },
+  credits: {
+    position: 'absolute',
+    bottom: '20px',
+    right: '20px',
+    color: 'gray',
+    cursor: 'pointer',
+    outline: 'none',
+    fontFamily: theme.primaryFontFamily,
+    textTransform: 'uppercase',
+    letterSpacing: theme.letterSpacingText,
+    backgroundColor: 'transparent',
+    border: 'none',
+    '&:hover':{
+      color: 'black',
+    },
+  }
 }))
 
 export default useStyles
