@@ -1,11 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import useStyles from './styles.js'
 
 const CheckIn = ({ user, firebase }) => {
+  const modal = useRef(null)
   const [list, setList] = useState([])
   const [search, setSearch] = useState('')
+  const [patient, setPatient] = useState({})
 
   const classes = useStyles()
+  
+  const closeModal = () => {
+    modal.current.className = classes.modal
+    setPatient({})
+  }
+
+  const moveToQueue = patient => {
+    firebase.moveToQueue(user.uid, patient)
+    closeModal()
+  }
+  
+  const openModalAndSetPatient = patient => {
+    modal.current.className = `${classes.modal} ${classes.display}`
+    setPatient(patient)
+  }
   
   useEffect(() => {
     firebase.database.collection("CheckIn").doc(user.uid)
@@ -20,7 +37,7 @@ const CheckIn = ({ user, firebase }) => {
               <div className={`${classes.col} ${classes.col2}`}>{patient.name}</div>
               <div className={`${classes.col} ${classes.col3}`}>{patient.dob}</div>
               <div className={`${classes.col} ${classes.col4}`}>
-                <button onClick={() => firebase.moveToQueue(user.uid, patient)}>Add</button>
+                <button onClick={() => openModalAndSetPatient(patient)}>Add</button>
               </div>
             </li>]
           )
@@ -30,8 +47,21 @@ const CheckIn = ({ user, firebase }) => {
     return
   }, [])
 
+  // useEffect(() => {
+  //   if(patient === {}) {
+  //     modal.current.className = classes.modal
+  //   } else {
+  //     modal.current.className = `${classes.modal} ${classes.display}`
+  //   }
+  // }, [patient])
+
   return (
     <div className={classes.page}>
+      <div className={classes.modal} ref={modal}>
+        <p>Are you sure you want to add <span>{patient.name}</span> to queue?</p>
+        <button onClick={() => moveToQueue(patient)}>Yes</button>
+        <button onClick={() => closeModal()}>No</button>
+      </div>
       <h1 className={classes.pageTitle}>Check In</h1>
       <div className={classes.container}>
         <input className={classes.search} placeholder='Last Name, First Name (or) DOB' onChange={e => setSearch(e.target.value)} value={search}></input>
