@@ -104,7 +104,11 @@ const useStyles = createUseStyles( theme => ({
       position: 'relative',
       top: '1px',
     },
-  },      
+  },
+  bold: {
+    textDecoration: 'underline',
+    fontWeight: 'bold',
+  },
 }))
 
 export default useStyles

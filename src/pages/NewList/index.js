@@ -12,7 +12,7 @@ const NewList = ({ firebase, user }) => {
     let input = userInput.split(/\n/)
     let data = []
     let number, name, dob
-    for(let i=0; i < input.length; i++){
+    for(let i=1; i < input.length; i++){
       [number, name, dob] = input[i].split(/\t/)
       if(!number){
         break
@@ -38,7 +38,7 @@ const NewList = ({ firebase, user }) => {
           <p className={classes.titleInfo}>Adding a new list will remove the previous one.</p>
         </div>
         <p className={classes.heading}>Step 1:</p>
-        <p className={classes.info}>Highlight the IDs, names, and DOB then copy.</p>
+        <p className={classes.info}>Highlight the IDs, names, and DOB <span className={classes.bold}>columns</span> then copy.</p>
         <div className={classes.imgContainer}>
           <img className={classes.img} src='/images/step1.png' alt='coping the numbers column and names column'/>
         </div>
