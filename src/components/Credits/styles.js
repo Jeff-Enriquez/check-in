@@ -90,6 +90,11 @@ const useStyles = createUseStyles(theme => ({
   light: {
     fontWeight: '300',
   },
+  link: {
+    cursor: 'pointer',
+    textDecoration: 'none',
+    color: 'darkblue',
+  },
   '@media (max-width: 480px)': {
     heading: {
       fontSize: '1.4em',

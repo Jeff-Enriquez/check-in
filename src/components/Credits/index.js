@@ -29,8 +29,8 @@ const Credits = ({ creditsIsOpen, setCreditsIsOpen }) => {
             <p>I'm passionate about software engineering and enjoy bringing ideas to life through code. I am currently looking for work and like to produce software that will add value to other people's lives.</p>
             <div className={classes.links}>
               <p><span className={classes.bold}>Email:</span> <span className={classes.light}>jeff.enriquez.h@gmail.com</span></p>
-              <p><span className={classes.bold}>Linked In:</span> <span className={classes.light}>linkedin.com/in/jeffrey-enriquez/</span></p>
-              <p><span className={classes.bold}>Projects:</span> <span className={classes.light}>https://github.com/Jeff-Enriquez</span></p>
+              <p><span className={classes.bold}>Linked In:</span> <a href='https://www.linkedin.com/in/jeffrey-enriquez/' target="_blank" className={`${classes.light} ${classes.link}`}>linkedin.com/in/jeffrey-enriquez/</a></p>
+              <p><span className={classes.bold}>Projects:</span> <a href='https://github.com/Jeff-Enriquez' target="_blank" className={`${classes.light} ${classes.link}`}>github.com/Jeff-Enriquez</a></p>
             </div>
           </div>
         </div>
