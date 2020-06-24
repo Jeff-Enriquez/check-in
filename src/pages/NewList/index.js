@@ -38,7 +38,7 @@ const NewList = ({ firebase, user }) => {
           <p className={classes.titleInfo}>Adding a new list will remove the previous one.</p>
         </div>
         <p className={classes.heading}>Step 1:</p>
-        <p className={classes.info}>Highlight the numbers and names column then copy.</p>
+        <p className={classes.info}>Highlight the IDs, names, and DOB then copy.</p>
         <div className={classes.imgContainer}>
           <img className={classes.img} src='/images/step1.png' alt='coping the numbers column and names column'/>
         </div>
@@ -46,7 +46,7 @@ const NewList = ({ firebase, user }) => {
         <p className={classes.info}>Paste the content below.</p>
         <div className={classes.textAreaContainer}>
           <textarea className={classes.textArea} placeholder="Paste content here." onChange={e => setUserInput(e.target.value)} value={userInput}></textarea>
-          <p className={classes.footer}>Don't modify it after pasting it. It's ok if there is extra space.</p>
+          <p className={classes.footer}>Don't modify it after pasting it.</p>
         </div>
         <p className={classes.heading}>Step 3:</p>
         <p className={classes.info}>Click the button below to add the new list.</p>

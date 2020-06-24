@@ -17,7 +17,7 @@ const useStyles = createUseStyles( theme => ({
     textAlign: 'center',
     margin: '0 0 20px 0',
     textTransform: 'uppercase',
-    letterSpacing: theme.letterSpacingHeading,
+    letterSpacing: theme.letterSpacingText,
     color: theme.primaryTextColor,
     fontFamily: theme.primaryFontFamily,
     fontSize: '2em',
