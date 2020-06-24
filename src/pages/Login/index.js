@@ -17,10 +17,8 @@ const Login = ({ setUser, user, firebase }) => {
   const handleForm = async e => {
     e.preventDefault()
     let email = username + '@site.com'
-    let list, uid
     try {
       const { user } = await firebase.doSignInWithEmailAndPassword(email, password)
-      uid = user.uid
       setUser(user)
     } catch (err) {
       errorElement.current.className = classes.error

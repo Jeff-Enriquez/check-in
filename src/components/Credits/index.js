@@ -24,7 +24,7 @@ const Credits = ({ creditsIsOpen, setCreditsIsOpen }) => {
         </div>
         <button onClick={() => setCreditsIsOpen(false)}>close</button>
         <div className={classes.profileContainer}>
-          <img src='/images/jeff.png' />
+          <img src='/images/jeff.png' alt='profile of Jeff Enriquez'/>
           <div className={classes.textContainer}>
             <p>I'm passionate about software engineering and enjoy bringing ideas to life through code. I am currently looking for work and like to produce software that will add value to other people's lives.</p>
             <div className={classes.links}>
