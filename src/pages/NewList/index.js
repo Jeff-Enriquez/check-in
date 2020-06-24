@@ -24,7 +24,6 @@ const NewList = ({ firebase, user }) => {
       })
     }
     firebase.addNewList(user.uid, data)
-    setUserInput('')
     setRedirect(true)
   }
 
