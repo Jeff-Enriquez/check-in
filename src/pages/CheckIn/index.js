@@ -17,7 +17,8 @@ const CheckIn = ({ user, firebase }) => {
             <li className={classes.tableRow} key={property}>
               <div className={`${classes.col} ${classes.col1}`}>{property}</div>
               <div className={`${classes.col} ${classes.col2}`}>{data[property]}</div>
-              <div className={`${classes.col} ${classes.col3}`}>
+              <div className={`${classes.col} ${classes.col3}`}>DOB</div>
+              <div className={`${classes.col} ${classes.col4}`}>
                 <button onClick={() => firebase.moveToQueue(user.uid, property, data[property])}>Add</button>
               </div>
             </li>]
@@ -32,12 +33,13 @@ const CheckIn = ({ user, firebase }) => {
     <div className={classes.page}>
       <h1 className={classes.pageTitle}>Check In</h1>
       <div className={classes.container}>
-        <input className={classes.search} placeholder='Search by name' onChange={e => setSearch(e.target.value)} value={search}></input>
+        <input className={classes.search} placeholder='Last Name, First Name (or) DOB' onChange={e => setSearch(e.target.value)} value={search}></input>
         <ul className={classes.responsiveTable}>
           <li className={classes.tableHeader}>
             <div className={`${classes.col} ${classes.col1}`}>ID</div>
             <div className={`${classes.col} ${classes.col2}`}>Name</div>
-            <div className={`${classes.col}`}>ADD TO QUEUE</div>
+            <div className={`${classes.col} ${classes.col3}`}>DOB</div>
+            <div className={`${classes.col} ${classes.col4}`}><p className={classes.add}>ADD TO QUEUE</p></div>
           </li>
           {list.map(item => {
             if(search === ''){
