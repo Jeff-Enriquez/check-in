@@ -60,7 +60,6 @@ const useStyles = createUseStyles( theme => ({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    // width: '120px',
     margin: '0'
   },
   tableHeader: {
