@@ -14,7 +14,7 @@ const CheckIn = ({ user, firebase }) => {
         let listElements = []
         for(let i = 0; i < data.length; i++) {
           let patient = data[i]
-          listElements.push([patient.name,
+          listElements.push([patient,
             <li className={classes.tableRow} key={patient.id}>
               <div className={`${classes.col} ${classes.col1}`}>{patient.id}</div>
               <div className={`${classes.col} ${classes.col2}`}>{patient.name}</div>
@@ -43,14 +43,27 @@ const CheckIn = ({ user, firebase }) => {
             <div className={`${classes.col} ${classes.col4}`}><p className={classes.add}>ADD TO QUEUE</p></div>
           </li>
           {list.map(item => {
+            let patient = item[0]
+            // if nothing is being searched, return everything
             if(search === ''){
               return item[1]
             }
             let match = true
-            for(let i = 0; i < search.length; i++){
-              if(search[i].toLowerCase() !== item[0][i].toLowerCase()){
-                match = false
-                break
+            // CHECK FOR DOB
+            if(!Object.is(Number(search[0]), NaN)){ // if the search IS a number (DOB)
+              for(let i = 0; i < search.length; i++){
+                if(search[i] !== patient.dob[i]){
+                  match = false
+                  break
+                }
+              }
+            // CHECK FOR NAME 
+            } else {
+              for(let i = 0; i < search.length; i++){
+                if(search[i].toLowerCase() !== patient.name[i].toLowerCase()){
+                  match = false
+                  break
+                }
               }
             }
             if(match){
