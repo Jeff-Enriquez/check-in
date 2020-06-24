@@ -10,14 +10,18 @@ const NewList = ({ firebase, user }) => {
 
   const submitUserInput = () => {
     let input = userInput.split(/\n/)
-    let data = {}
-    let number, name
+    let data = []
+    let number, name, dob
     for(let i=0; i < input.length; i++){
-      [number, name] = input[i].split(/\t/)
+      [number, name, dob] = input[i].split(/\t/)
       if(!number){
         break
       }
-      data[number] = name
+      data.push({
+        id: number,
+        name: name,
+        dob: dob
+      })
     }
     firebase.addNewList(user.uid, data)
     setUserInput('')

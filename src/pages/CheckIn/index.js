@@ -12,14 +12,15 @@ const CheckIn = ({ user, firebase }) => {
       .onSnapshot((doc) => {
         const data = doc.data().patients
         let listElements = []
-        for (const property in data) {
-          listElements.push([data[property],
-            <li className={classes.tableRow} key={property}>
-              <div className={`${classes.col} ${classes.col1}`}>{property}</div>
-              <div className={`${classes.col} ${classes.col2}`}>{data[property]}</div>
-              <div className={`${classes.col} ${classes.col3}`}>DOB</div>
+        for(let i = 0; i < data.length; i++) {
+          let patient = data[i]
+          listElements.push([patient.name,
+            <li className={classes.tableRow} key={patient.id}>
+              <div className={`${classes.col} ${classes.col1}`}>{patient.id}</div>
+              <div className={`${classes.col} ${classes.col2}`}>{patient.name}</div>
+              <div className={`${classes.col} ${classes.col3}`}>{patient.dob}</div>
               <div className={`${classes.col} ${classes.col4}`}>
-                <button onClick={() => firebase.moveToQueue(user.uid, property, data[property])}>Add</button>
+                <button onClick={() => firebase.moveToQueue(user.uid, patient)}>Add</button>
               </div>
             </li>]
           )
