@@ -24,6 +24,7 @@ const useStyles = createUseStyles( theme => ({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
+    width: 'fit-content',
     '& $link:last-of-type': {
       margin: '0 auto',
     },
