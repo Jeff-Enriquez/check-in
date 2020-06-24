@@ -26,7 +26,6 @@ const useStyles = createUseStyles( theme => ({
     fontFamily: theme.secondaryFontFamily,
     fontSize: '1.1em',
     outline: 'none',
-    transform: 'scale(1.02)',
   },
   container: {
     fontFamily: theme.secondaryFontFamily,
@@ -44,6 +43,11 @@ const useStyles = createUseStyles( theme => ({
       '&:hover':{
         transform: 'scale(1.02)',
       },
+    },
+    '& li:first-of-type': {
+      '&:hover': {
+        transform: 'none',
+      }
     },
     '& button': {
       position: 'absolute',

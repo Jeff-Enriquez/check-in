@@ -30,6 +30,11 @@ const useStyles = createUseStyles( theme => ({
         transform: 'scale(1.02)',
       },
     },
+    '& li:first-of-type': {
+      '&:hover': {
+        transform: 'none',
+      }
+    },
     '& button': {
       position: 'absolute',
       top: '50%',
