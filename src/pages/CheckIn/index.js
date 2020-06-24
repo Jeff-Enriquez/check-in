@@ -47,14 +47,6 @@ const CheckIn = ({ user, firebase }) => {
     return
   }, [])
 
-  // useEffect(() => {
-  //   if(patient === {}) {
-  //     modal.current.className = classes.modal
-  //   } else {
-  //     modal.current.className = `${classes.modal} ${classes.display}`
-  //   }
-  // }, [patient])
-
   return (
     <div className={classes.page}>
       <div className={classes.modal} ref={modal}>

@@ -4,6 +4,57 @@ const useStyles = createUseStyles( theme => ({
   page: {
     padding: '20px',
   },
+  modal: {
+    display: 'none',
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    zIndex: '10',
+    backgroundColor: 'white',
+    textAlign: 'center',
+    letterSpacing: theme.letterSpacingText,
+    fontFamily: theme.secondaryFontFamily,
+    fontSize: '1em',
+    padding: '30px 40px',
+    maxWidth: '80%',
+    border: '1px solid gray',
+    '& button': {
+      display: 'block',
+      margin: '0 auto',
+      width: '100px',
+      padding: '5px 0',
+      boxSizing: 'border-box',
+      textTransform: 'uppercase',
+      borderRadius: '20px',
+      border: '1px solid gray',
+      cursor: 'pointer',
+      outline: 'none',
+    },
+    '& button:first-of-type': {
+      marginBottom: '10px',
+      backgroundColor: '#c2f0ff',
+      '&:hover': {
+        backgroundColor: '#d9f6ff',
+      },
+    },
+    '& button:last-of-type': {
+      backgroundColor: '#f5f5f5',
+      '&:hover': {
+        backgroundColor: '#fafafa',
+      }
+    },
+    '& p': {
+      margin: '0 0 20px 0',
+    },
+    '& span': {
+      fontWeight: 'bold',
+      color: 'darkblue',
+    }
+  },
+  display: {
+    display: 'block',
+  },
   pageTitle: {
     margin: '0',
     textTransform: 'uppercase',
