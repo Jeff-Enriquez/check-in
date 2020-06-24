@@ -50,6 +50,14 @@ const useStyles = createUseStyles( theme => ({
       },
     }
   },
+  remove: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    // width: '120px',
+    margin: '0'
+  },
   tableHeader: {
     backgroundColor: 'rgb(173, 216, 230)',
     fontSize: '1em',
@@ -62,17 +70,34 @@ const useStyles = createUseStyles( theme => ({
     boxShadow: '0px 4px 5px rgba(173, 216, 230, 0.2), 0px 3px 14px rgba(173, 216, 230, 0.12), 0px 8px 10px rgba(173, 216, 230, 0.14)',
   },
   col1: {
-    flexBasis: '10%',
+    flexBasis: '5%',
   },
   col2: {
-    flexBasis: '40%',
+    flexBasis: '30%',
     margin: '0 8px',
   },
   col3: {
+    flexBasis: '15%',
+  },
+  col4: {
+    flexBasis: '15%',
     position: 'relative',
     width: '100px',
-    // flexBasis: '35%',
   },
+  '@media (max-width: 700px)': {
+    tableHeader: {
+      fontSize: '.8em',
+    },
+    tableRow: {
+      fontSize: '.6em',
+    },
+    responsiveTable: {
+      '& button': {
+        width: '72px', 
+        fontSize: '1.15em',
+      },
+    },
+  }
 }))
 
 export default useStyles

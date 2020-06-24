@@ -106,17 +106,15 @@ const useStyles = createUseStyles( theme => ({
     },
     responsiveTable: {
       '& button': {
-        width: '80px', 
-        padding: '-10px 5px',
-      }
-    }
-  },
-  '@media (max-width: 600px)': {
+        width: '72px', 
+        fontSize: '1.15em',
+      },
+    },
     add: {
       width: '80px',
       transform: 'translate(-30%, -50%)',
-    }
-  }
+    },
+  },
 }))
 
 export default useStyles

@@ -43,11 +43,10 @@ class Firebase {
     })
   }
 
-  removeFromQueue = (uid, object) => {
+  removeFromQueue = (uid, patient) => 
     this.database.collection('Queue').doc(uid).update({
-      patients: app.firestore.FieldValue.arrayRemove(object)
+      patients: app.firestore.FieldValue.arrayRemove(patient)
     })
-  }
 
 }
 
