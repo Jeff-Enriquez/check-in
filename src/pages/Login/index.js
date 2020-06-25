@@ -4,8 +4,8 @@ import useStyles from './styles.js'
 import Credits from '../../components/Credits'
 
 const Login = ({ setUser, user, firebase }) => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [username, setUsername] = useState('admin')
+  const [password, setPassword] = useState('password')
   const [error, setError] = useState(null)
   const [creditsIsOpen, setCreditsIsOpen] = useState(false)
 
