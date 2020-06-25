@@ -15,14 +15,14 @@
 
 <h3>Screen Shots</h3>
 <p>Log in Page</p>
-<img style='max-width: 650px' src='https://imgur.com/NIDDCDt' />
+<img style='max-width: 650px' src='https://imgur.com/NIDDCDt.png' />
 <p>Add a New List (image is zoomed out)</p>
-<img style='max-width: 650px' src='https://imgur.com/WCkU2wp' />
+<img style='max-width: 650px' src='https://imgur.com/WCkU2wp.png' />
 <p>Check In List</p>
-<img style='max-width: 650px' src='https://imgur.com/xQAbJYw' />
+<img style='max-width: 650px' src='https://imgur.com/xQAbJYw.png' />
 <p>Confirm Selection</p>
-<img style='max-width: 650px' src='https://imgur.com/6snK3ZO' />
+<img style='max-width: 650px' src='https://imgur.com/6snK3ZO.png' />
 <p>Queue</p>
-<img style='max-width: 650px' src='https://imgur.com/lzND9Tt' />
+<img style='max-width: 650px' src='https://imgur.com/lzND9Tt.png' />
 <p>Navigation Menu</p>
-<img style='max-width: 650px' src='https://imgur.com/WCkU2wp' />
+<img style='max-width: 650px' src='https://imgur.com/WCkU2wp.png' />
