@@ -1,6 +1,6 @@
 <h3>Introduction</h3>
 <p>The app was made for COVID testing sites. The Manager can copy and paste the list of User ID's, names, and date of birth (dob) to the app. The list will appear in check-in. Once a patient has been checked in they are added to the queue. All the information is updated in real-time. Check in patients can be searched by name or dob. Only those authenticated on the app can view the list. The site is mobile-first responsive design.</p>
-<p>To view the app click <a href='https://fast-queue-web.web.app/login'>here.</a></p>
+<p>To view the app click <a href='https://fast-queue-web.web.app/login'>here.</a> Simple click 'Login' to access the app (the credentials are already entered).</p>
 
 <h3>Technologies Used</h3>
 <ul>
